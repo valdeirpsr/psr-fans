@@ -1,0 +1,41 @@
+// https://aka.ms/devcontainer.json
+{
+    "name": "PSR Fans",
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    "service": "laravel.test",
+    "workspaceFolder": "/var/www/html",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "formulahendry.auto-rename-tag",
+                "ms-vscode-remote.remote-containers",
+                "ms-azuretools.vscode-docker",
+                "EditorConfig.EditorConfig",
+                "xdebug.php-debug",
+                "bmewburn.vscode-intelephense-client",
+                "bradlc.vscode-tailwindcss",
+                "Gruntfuggly.todo-tree",
+                "Vue.vscode-typescript-vue-plugin",
+                "Vue.volar",
+                "esbenp.prettier-vscode",
+                // "mikestead.dotenv",
+                "amiralizadeh9480.laravel-extra-intellisense",
+                "palaso.just-files",
+                "dbaeumer.vscode-eslint",
+                "DEVSENSE.composer-php-vscode",
+                "DEVSENSE.phptools-vscode",
+                "xdebug.php-pack",
+                "zobo.php-intellisense",
+                "DEVSENSE.profiler-php-vscode"
+            ],
+            "settings": {}
+        }
+    },
+    "remoteUser": "sail",
+    "shutdownAction": "stopCompose",
+    "postCreateCommand": "chown -R 1000:1000 /var/www/html 2>/dev/null || true"
+    // "forwardPorts": [],
+    // "runServices": [],
+}
