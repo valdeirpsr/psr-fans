@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+    .card {
+        @apply container bg-white p-4 mb-4 sm:max-w-5xl;
+    }
+
     .btn {
         @apply rounded-2xl
         bg-pink-600
