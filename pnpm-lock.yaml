@@ -14,6 +14,9 @@ dependencies:
   postcss:
     specifier: ^8.4.31
     version: 8.4.31
+  share-api-polyfill:
+    specifier: ^1.1.1
+    version: 1.1.1
   tailwindcss:
     specifier: ^3.3.5
     version: 3.3.5
@@ -862,6 +865,10 @@ packages:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
     dependencies:
       queue-microtask: 1.2.3
+    dev: false
+
+  /share-api-polyfill@1.1.1:
+    resolution: {integrity: sha512-5GxXomFRth4lBpHWN136cxpv8KOo+uutljXqgO1RsptDQ5X1raRQWqLi+LoWZ/h02/TgV1STJwuMXcP/0b1vpQ==}
     dev: false
 
   /source-map-js@1.0.2:
