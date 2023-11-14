@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .btn {
+        @apply rounded-2xl
+        bg-pink-600
+        text-white
+        px-8
+        py-3
+        w-full
+        text-base
+        hover:bg-pink-800
+        block;
+    }
+
+    .btn-icon {
+        @apply active:scale-110 active:outline-none;
+    }
+}
