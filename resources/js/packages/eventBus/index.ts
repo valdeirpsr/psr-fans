@@ -1,17 +1,17 @@
-const events = new Map<string, Set<any>>()
+const events = new Map<string|symbol, Set<any>>()
 
-export type EventBusListener<T = unknown, P = any> = (event: T, payload: P) => void;
+export type EventBusListener = Function;
 
-export default <T = unknown, P = any>(key: string) => {
+export default <T = unknown, P = any>(key: string|symbol) => {
 
-  function on(listener: EventBusListener<T, P>) {
+  function on(listener: EventBusListener) {
     const listeners = _getListeners();
     listeners.add(listener)
 
     _saveListeners(listeners);
   }
 
-  function off(listener: EventBusListener<T, P>) {
+  function off(listener: EventBusListener) {
     const listeners = _getListeners();
     listeners.delete(listener);
 
