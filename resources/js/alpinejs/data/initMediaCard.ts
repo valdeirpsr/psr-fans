@@ -1,9 +1,11 @@
+import eventBus from '@/packages/eventBus';
 import { Magics } from 'alpinejs';
 import 'share-api-polyfill';
 
 type Options = {
   isLiked: boolean;
   url: string;
+  postId: string|number;
 }
 
 export default (opts: Options) => ({
@@ -21,4 +23,8 @@ export default (opts: Options) => ({
 
     navigator.share(data);
   },
+
+  openComments: function () {
+    eventBus('comments').emit(this.postId);
+  }
 });

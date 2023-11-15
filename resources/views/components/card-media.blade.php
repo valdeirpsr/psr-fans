@@ -62,7 +62,7 @@
             </svg>
         </x-inputs.button>
 
-        <x-inputs.button type="icon">
+        <x-inputs.button type="icon" @click="openComments">
             <svg xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" width="26" xmlns="http://www.w3.org/2000/svg"" id="screenshot-1353d6eb-ca3d-8065-8003-69041274cda4" version="1.1" viewBox="282 1089 26 26" height="26">
                 <g id="shape-1353d6eb-ca3d-8065-8003-69041274cda4" style="fill:#000000" width="24" class="lucide lucide-message-circle" height="24" rx="0" ry="0">
                 <g id="shape-1353d6eb-ca3d-8065-8003-690412772b8f">

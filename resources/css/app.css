@@ -20,6 +20,6 @@
     }
 
     .btn-icon {
-        @apply active:scale-110 active:outline-none;
+        @apply active:scale-110 active:outline-none flex space-x-2;
     }
 }
