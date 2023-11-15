@@ -34,10 +34,10 @@
                 md:grid md:gap-2 md:grid-cols-2 md:overflow-hidden
                 lg:grid-cols-3
             ">
-                <img src="https://placehold.co/384" alt="" class="snap-center" />
-                <video poster="https://placehold.co/384?text=Vídeo" alt="" class="snap-center"></video>
-                <img src="https://placehold.co/384" alt="" class="snap-center" />
-                <img src="https://placehold.co/384" alt="" class="snap-center" />
+                <img src="https://placehold.co/384" alt="" class="snap-center" @click="openMediaViewer('https://placehold.co/384', 'image/jpeg')" />
+                <video poster="https://placehold.co/384?text=Vídeo" alt="" class="snap-center" @click="openMediaViewer('https://placehold.co/384', 'video/mp4')"></video>
+                <img src="https://placehold.co/384" alt="" class="snap-center" @click="openMediaViewer('https://placehold.co/384', 'image/jpeg')" />
+                <img src="https://placehold.co/384" alt="" class="snap-center" @click="openMediaViewer('https://placehold.co/384', 'image/jpeg')" />
             </div>
         @endif
     </div>

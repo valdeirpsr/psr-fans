@@ -1,6 +1,7 @@
 import eventBus from '@/packages/eventBus';
 import { Magics } from 'alpinejs';
 import 'share-api-polyfill';
+import { EVENT_KEY as EVENT_MEDIA_VIEWER_KEY } from './initMediaViewer';
 
 type Options = {
   isLiked: boolean;
@@ -26,5 +27,9 @@ export default (opts: Options) => ({
 
   openComments: function () {
     eventBus('comments').emit(this.postId);
+  },
+
+  openMediaViewer: function (src: string, mimeType: string) {
+    eventBus(EVENT_MEDIA_VIEWER_KEY).emit(this.postId, src, mimeType);
   }
 });
