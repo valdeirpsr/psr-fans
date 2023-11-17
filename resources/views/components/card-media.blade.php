@@ -24,7 +24,7 @@
         @if ($isPrivate)
             <div class="overflow-hidden relative w-fit grid place-items-center place-content-center m-auto">
                 <img src="https://placehold.co/384" alt="" class="snap-center blur-md" />
-                <x-inputs.button class="absolute w-5/6">
+                <x-inputs.button class="absolute w-5/6" @click="$dispatch('open-subscribe-modal')">
                     ASSINAR CONTEÚDO
                 </x-inputs.button>
             </div>
