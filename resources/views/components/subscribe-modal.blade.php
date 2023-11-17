@@ -14,7 +14,7 @@
 
                         <div>
                             <p class="font-bold">YOUR NAME</p>
-                            <p class="text-gray-400 text-sm">104 Fotos | 54 Vídeos</p>
+                            <p class="text-gray-500 text-sm">104 Fotos | 54 Vídeos</p>
                         </div>
                     </div>
 

@@ -5,15 +5,12 @@
         url: 'https://valdeir.dev'
     })"
 >
-    <div class="flex">
-        <img src="https://placehold.co/50" class="rounded-full h-12 w-12" />
-        <div class="ml-2 flex-1">
+    <div class="flex items-center">
+        <img src="https://placehold.co/50" class="rounded-full h-12 w-12" alt="Perfil" />
+        <div class="ml-2 flex-1 text-[12px]">
             <p class="font-bold">YOUR NAME</p>
-            <p class="text-gray-400 text-sm">30 out 00h44</p>
+            <p class="text-gray-500">30 out 00h44</p>
         </div>
-        <button>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="star" class="lucide lucide-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        </button>
     </div>
 
     <div x-ref="content">
@@ -23,7 +20,7 @@
     <div class="overflow-hidden">
         @if ($isPrivate)
             <div class="overflow-hidden relative w-fit grid place-items-center place-content-center m-auto">
-                <img src="https://placehold.co/384" alt="" class="snap-center blur-md" />
+                <img src="https://placehold.co/384" alt="Conteúdo privado" class="snap-center blur-md" height="384" width="384" />
                 <x-inputs.button class="absolute w-5/6" @click="$dispatch('open-subscribe-modal')">
                     ASSINAR CONTEÚDO
                 </x-inputs.button>
@@ -34,16 +31,16 @@
                 md:grid md:gap-2 md:grid-cols-2 md:overflow-hidden
                 lg:grid-cols-3
             ">
-                <img src="https://placehold.co/384" alt="" class="snap-center" @click="openMediaViewer('https://placehold.co/384', 'image/jpeg')" />
+                <img src="https://placehold.co/384" alt="Conteúdo" class="snap-center" decoding="async" loading="lazy" height="384" width="384" @click="openMediaViewer('https://placehold.co/384', 'image/jpeg')" />
                 <video poster="https://placehold.co/384?text=Vídeo" alt="" class="snap-center" @click="openMediaViewer('https://placehold.co/384', 'video/mp4')"></video>
-                <img src="https://placehold.co/384" alt="" class="snap-center" @click="openMediaViewer('https://placehold.co/384', 'image/jpeg')" />
-                <img src="https://placehold.co/384" alt="" class="snap-center" @click="openMediaViewer('https://placehold.co/384', 'image/jpeg')" />
+                <img src="https://placehold.co/384" alt="Conteúdo" class="snap-center" decoding="async" loading="lazy" height="384" width="384" @click="openMediaViewer('https://placehold.co/384', 'image/jpeg')" />
+                <img src="https://placehold.co/384" alt="Conteúdo" class="snap-center" decoding="async" loading="lazy" height="384" width="384" @click="openMediaViewer('https://placehold.co/384', 'image/jpeg')" />
             </div>
         @endif
     </div>
 
     <div class="grid grid-cols-[24px_24px_24px_auto_min-content] gap-4">
-        <x-inputs.button type="icon" @click="toggleLike" data-test="button-like">
+        <x-inputs.button type="icon" @click="toggleLike" data-test="button-like" title="Gostei">
             <svg :class="{ 'fill-transparent stroke-black': !isLiked, 'fill-red-500 border-red-500': isLiked }" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" width="26" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="242 1089 26 26" height="26">
                 <g width="24" height="24" rx="0" ry="0">
                     <g>
@@ -62,7 +59,7 @@
             </svg>
         </x-inputs.button>
 
-        <x-inputs.button type="icon" @click="openComments">
+        <x-inputs.button type="icon" @click="openComments" title="Comentários">
             <svg xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" width="26" xmlns="http://www.w3.org/2000/svg"" id="screenshot-1353d6eb-ca3d-8065-8003-69041274cda4" version="1.1" viewBox="282 1089 26 26" height="26">
                 <g id="shape-1353d6eb-ca3d-8065-8003-69041274cda4" style="fill:#000000" width="24" class="lucide lucide-message-circle" height="24" rx="0" ry="0">
                 <g id="shape-1353d6eb-ca3d-8065-8003-690412772b8f">
@@ -81,7 +78,7 @@
             </svg>
         </x-inputs.button>
 
-        <x-inputs.button type="icon" @click="share">
+        <x-inputs.button type="icon" @click="share" title="Compartilhar">
             <svg xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" width="26" xmlns="http://www.w3.org/2000/svg" id="screenshot-1353d6eb-ca3d-8065-8003-690424a8c3f1" version="1.1" viewBox="322 1089 26 26" height="26">
                 <g id="shape-1353d6eb-ca3d-8065-8003-690424a8c3f1" style="fill:#000000" width="24" class="lucide lucide-send" height="24" rx="0" ry="0">
                 <g id="shape-1353d6eb-ca3d-8065-8003-690424a92b60">
