@@ -9,7 +9,7 @@
             >
                 <div>
                     <span class="float-left leading-[32px]">Comentários</span>
-                    <span class="text-2xl float-right">&times;</span>
+                    <span class="text-2xl float-right cursor-pointer" @click="closeModal">&times;</span>
                 </div>
 
                 <hr class="divide-x-[100%] my-4" />
