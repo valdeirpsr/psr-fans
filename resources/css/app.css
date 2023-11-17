@@ -16,7 +16,8 @@
         w-full
         text-base
         hover:bg-pink-800
-        block;
+        block
+        disabled:bg-gray-500;
     }
 
     .btn-icon {

@@ -1,5 +1,6 @@
 @php
     $type ??= 'button';
+    $loading ??= false;
 @endphp
 
 @if ($type === 'anchor')
@@ -11,7 +12,11 @@
     {{ $slot }}
 </button>
 @else
-<button {{ $attributes->merge(['class' => 'btn']) }}>
+<button {{ $attributes->merge(['class' => 'btn', 'disabled' => $loading]) }}>
+    @if ($loading)
+    Aguarde...
+    @else
     {{ $slot }}
+    @endif
 </button>
 @endif
