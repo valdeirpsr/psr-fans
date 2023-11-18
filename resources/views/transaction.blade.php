@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('content')
 <div class="container sm:max-w-5xl p-4">
     <p class="font-bold">Selecione a forma de pagamento!</p>
 
@@ -44,3 +45,4 @@
         </div>
     </div>
 </div>
+@endsection

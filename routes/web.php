@@ -18,4 +18,7 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/transacao/{status}', [TransactionController::class, 'status'])
+    ->whereIn('status', ['approved', 'expired']);
+
 Route::get('/transacao/{id}', [TransactionController::class, 'index']);
