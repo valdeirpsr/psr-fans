@@ -3,6 +3,7 @@ import initMediaCard from './data/initMediaCard';
 import initCommetDialog from './data/initCommetDialog';
 import initMediaViewer from './data/initMediaViewer';
 import initSubscribeModal from './data/initSubscribeModal';
+import initGiftModal from './data/initGiftModal';
 
 document.addEventListener('alpine:init', () => {
   /* @ts-ignore */
@@ -10,6 +11,7 @@ document.addEventListener('alpine:init', () => {
   AlpineJs.data('initCommentDialog', initCommetDialog);
   AlpineJs.data('initMediaViewer', initMediaViewer);
   AlpineJs.data('initSubscribeModal', initSubscribeModal);
+  AlpineJs.data('initGiftModal', initGiftModal);
 });
 
 window.Alpine = AlpineJs;
