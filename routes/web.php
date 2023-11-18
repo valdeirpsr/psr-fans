@@ -21,4 +21,4 @@ Route::get('/', function () {
 Route::get('/transacao/{status}', [TransactionController::class, 'status'])
     ->whereIn('status', ['approved', 'expired']);
 
-Route::get('/transacao/{id}', [TransactionController::class, 'index']);
+Route::get('/transacao/detalhes/{id}', [TransactionController::class, 'index']);
