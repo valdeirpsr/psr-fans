@@ -13,10 +13,13 @@
     <!-- Styles -->
     @vite('resources/css/app.css')
     @vite('resources/js/app.ts')
+    @stack('scripts-header')
 </head>
 
 <body class="antialiased bg-[#fafafa]">
     @yield('content')
+
+    @stack('scripts-footer')
 </body>
 
 </html>
