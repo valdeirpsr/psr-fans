@@ -49,4 +49,17 @@
         dark:focus:ring-blue-500
         dark:focus:border-blue-500;
     }
+
+    .step-rounded {
+        @apply inline-block
+        h-8
+        w-8
+        bg-pink-600
+        text-white
+        rounded-full
+        text-center
+        leading-8
+        mr-3
+        aspect-square;
+    }
 }
