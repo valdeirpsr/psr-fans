@@ -3,6 +3,7 @@
 namespace App\Actions\Fortify;
 
 use App\Models\User;
+use App\Rules\Cpf;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
@@ -19,11 +20,15 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
+        $minBirthdate = now()->subYears(18)->format('Y-m-d');
+
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
+            'birthdate' => ['required', "before_or_equal:{$minBirthdate}"],
+            'cpf' => ['required', new Cpf],
         ])->validate();
 
         return User::create([
