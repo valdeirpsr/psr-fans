@@ -1,35 +1,6 @@
 @extends('layouts.app') @section('main')
 
-@if (config('settings.page.login.background'))
-<picture class="h-screen w-screen fixed" x-data="{
-    images: [
-        { height: '915', width: '412', src: '{{ config('settings.page.login.background.sm') }}', maxWidth: '480px' },
-        { height: '915', width: '412', src: '{{ config('settings.page.login.background.md') }}', maxWidth: '800px' },
-        { height: '915', width: '412', src: '{{ config('settings.page.login.background.lg') }}', maxWidth: '1024px' }
-    ]
-}">
-    <template x-for="image in images">
-        <source
-            :media="`(max-width: ${image.maxWidth})`"
-            :srcset="image.src"
-            class="h-full object-cover select-none"
-            fetchpriority="high"
-            loading="eager"
-            :srcset="image.height"
-            :srcset="image.width"
-        />
-    </template>
-    <img
-        src="{{ config('settings.page.login.background.default') }}"
-        alt=""
-        class="h-full object-cover select-none"
-        fetchpriority="high"
-        loading="eager"
-        height="1080"
-        width="1920"
-    />
-</picture>
-@endif
+<x-background-page page="login" />
 
 <div
     x-data="initLoginPage"
