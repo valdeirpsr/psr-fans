@@ -17,7 +17,7 @@
 </head>
 
 <body class="antialiased bg-[#fafafa]">
-    @yield('content')
+    @yield('main')
 
     @stack('scripts-footer')
 </body>
