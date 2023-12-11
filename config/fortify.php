@@ -157,4 +157,18 @@ return [
         ]),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Redirects
+    |--------------------------------------------------------------------------
+    |
+    | Defines redirections according to events occurring in Fortify
+    | If no redirection is set, the default will be the 'fortify.home'
+    | setting
+    |
+    */
+    'redirects' => [
+        'register' => '/',
+    ]
+
 ];
