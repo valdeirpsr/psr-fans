@@ -5,6 +5,7 @@ import initMediaViewer from './data/initMediaViewer';
 import initSubscribeModal from './data/initSubscribeModal';
 import initGiftModal from './data/initGiftModal';
 
+
 document.addEventListener('alpine:init', () => {
   /* @ts-ignore */
   AlpineJs.data('initMediaCard', initMediaCard);
