@@ -59,9 +59,12 @@
                 </div>
 
                 <div>
-                    <x-nav-link href="#" class="text-sm float-right"
-                        >Esqueci minha senha</x-nav-link
-                    >
+                    @if (Route::has('password.request'))
+                        <x-nav-link href="{{ route('password.request') }}" class="text-sm float-right">
+                            {{ __('Forgot your password?') }}
+                        </x-nav-link>
+                    @endif
+
                     <div class="clear-both"></div>
                 </div>
 
