@@ -9,7 +9,7 @@
         <img src="https://placehold.co/50" class="rounded-full h-12 w-12" alt="Perfil" />
         <div class="ml-2 flex-1 text-[12px]">
             <p class="font-bold">YOUR NAME</p>
-            <p class="text-gray-500">30 out 00h44</p>
+            <p class="text-gray-500 dark:text-gray-300">30 out 00h44</p>
         </div>
     </div>
 
@@ -41,7 +41,7 @@
 
     <div class="grid grid-cols-[24px_24px_24px_auto_min-content] gap-4">
         <x-inputs.button type="icon" @click="toggleLike" data-test="button-like" title="Gostei">
-            <svg :class="{ 'fill-transparent stroke-black': !isLiked, 'fill-red-500 border-red-500': isLiked }" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" width="26" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="242 1089 26 26" height="26">
+            <svg :class="{ 'fill-transparent stroke-black dark:stroke-gray-300': !isLiked, 'fill-red-500 border-red-500': isLiked }" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" width="26" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="242 1089 26 26" height="26">
                 <g width="24" height="24" rx="0" ry="0">
                     <g>
                         <g class="fills">
@@ -61,17 +61,17 @@
 
         <x-inputs.button type="icon" @click="openComments" title="Comentários">
             <svg xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" width="26" xmlns="http://www.w3.org/2000/svg"" id="screenshot-1353d6eb-ca3d-8065-8003-69041274cda4" version="1.1" viewBox="282 1089 26 26" height="26">
-                <g id="shape-1353d6eb-ca3d-8065-8003-69041274cda4" style="fill:#000000" width="24" class="lucide lucide-message-circle" height="24" rx="0" ry="0">
-                <g id="shape-1353d6eb-ca3d-8065-8003-690412772b8f">
-                    <g class="fills" id="fills-1353d6eb-ca3d-8065-8003-690412772b8f">
-                    <path fill="none" stroke-linecap="round" stroke-linejoin="round" rx="0" ry="0" style="fill:none" d="M304.000,1101.500C304.003,1102.820,303.695,1104.122,303.100,1105.300C301.661,1108.179,298.719,1109.999,295.500,1110.000C294.180,1110.003,292.878,1109.695,291.700,1109.100L286.000,1111.000L287.900,1105.300C287.305,1104.122,286.997,1102.820,287.000,1101.500C287.001,1098.281,288.821,1095.339,291.700,1093.900C292.878,1093.305,294.180,1092.997,295.500,1093.000L296.000,1093.000C300.316,1093.238,303.762,1096.684,304.000,1101.000L304.000,1101.500ZZ">
-                    </path>
-                    </g>
-                    <g id="strokes-1353d6eb-ca3d-8065-8003-690412772b8f" class="strokes">
-                    <g class="stroke-shape">
-                        <path stroke-linecap="round" stroke-linejoin="round" rx="0" ry="0" style="fill:none;fill-opacity:none;stroke-width:2;stroke:#000000;stroke-opacity:1" d="M304.000,1101.500C304.003,1102.820,303.695,1104.122,303.100,1105.300C301.661,1108.179,298.719,1109.999,295.500,1110.000C294.180,1110.003,292.878,1109.695,291.700,1109.100L286.000,1111.000L287.900,1105.300C287.305,1104.122,286.997,1102.820,287.000,1101.500C287.001,1098.281,288.821,1095.339,291.700,1093.900C292.878,1093.305,294.180,1092.997,295.500,1093.000L296.000,1093.000C300.316,1093.238,303.762,1096.684,304.000,1101.000L304.000,1101.500ZZ">
+                <g width="24" class="fill-black dark:fill-gray-300 lucide lucide-message-circle" height="24" rx="0" ry="0">
+                <g>
+                    <g class="fills">
+                        <path fill="none" stroke-linecap="round" stroke-linejoin="round" rx="0" ry="0" style="fill:none" d="M304.000,1101.500C304.003,1102.820,303.695,1104.122,303.100,1105.300C301.661,1108.179,298.719,1109.999,295.500,1110.000C294.180,1110.003,292.878,1109.695,291.700,1109.100L286.000,1111.000L287.900,1105.300C287.305,1104.122,286.997,1102.820,287.000,1101.500C287.001,1098.281,288.821,1095.339,291.700,1093.900C292.878,1093.305,294.180,1092.997,295.500,1093.000L296.000,1093.000C300.316,1093.238,303.762,1096.684,304.000,1101.000L304.000,1101.500ZZ">
                         </path>
                     </g>
+                    <g class="strokes">
+                        <g>
+                            <path class="stroke-black dark:stroke-gray-300" stroke-linecap="round" stroke-linejoin="round" rx="0" ry="0" style="fill:none;fill-opacity:none;stroke-width:2;stroke-opacity:1" d="M304.000,1101.500C304.003,1102.820,303.695,1104.122,303.100,1105.300C301.661,1108.179,298.719,1109.999,295.500,1110.000C294.180,1110.003,292.878,1109.695,291.700,1109.100L286.000,1111.000L287.900,1105.300C287.305,1104.122,286.997,1102.820,287.000,1101.500C287.001,1098.281,288.821,1095.339,291.700,1093.900C292.878,1093.305,294.180,1092.997,295.500,1093.000L296.000,1093.000C300.316,1093.238,303.762,1096.684,304.000,1101.000L304.000,1101.500ZZ">
+                            </path>
+                        </g>
                     </g>
                 </g>
                 </g>
@@ -79,30 +79,30 @@
         </x-inputs.button>
 
         <x-inputs.button type="icon" @click="share" title="Compartilhar">
-            <svg xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" width="26" xmlns="http://www.w3.org/2000/svg" id="screenshot-1353d6eb-ca3d-8065-8003-690424a8c3f1" version="1.1" viewBox="322 1089 26 26" height="26">
-                <g id="shape-1353d6eb-ca3d-8065-8003-690424a8c3f1" style="fill:#000000" width="24" class="lucide lucide-send" height="24" rx="0" ry="0">
-                <g id="shape-1353d6eb-ca3d-8065-8003-690424a92b60">
+            <svg xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" width="26" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="322 1089 26 26" height="26">
+                <g width="24" class="lucide lucide-send fill-black dark:fill-gray-300" height="24" rx="0" ry="0">
+                <g>
                     <g class="fills" id="fills-1353d6eb-ca3d-8065-8003-690424a92b60">
-                    <path fill="none" stroke-linejoin="round" stroke-linecap="round" rx="0" ry="0" style="fill:none" d="M345.000,1092.000L334.000,1103.000">
-                    </path>
-                    </g>
-                    <g id="strokes-1353d6eb-ca3d-8065-8003-690424a92b60" class="strokes">
-                    <g class="stroke-shape">
-                        <path stroke-linejoin="round" stroke-linecap="round" rx="0" ry="0" style="fill:none;fill-opacity:none;stroke-width:2;stroke:#000000;stroke-opacity:1" d="M345.000,1092.000L334.000,1103.000">
+                        <path fill="none" stroke-linejoin="round" stroke-linecap="round" rx="0" ry="0" style="fill:none" d="M345.000,1092.000L334.000,1103.000">
                         </path>
                     </g>
+                    <g class="strokes">
+                        <g class="stroke-shape">
+                            <path class="stroke-black dark:stroke-gray-300" stroke-linejoin="round" stroke-linecap="round" rx="0" ry="0" style="fill:none;fill-opacity:none;stroke-width:2;stroke-opacity:1" d="M345.000,1092.000L334.000,1103.000">
+                            </path>
+                        </g>
                     </g>
                 </g>
-                <g id="shape-1353d6eb-ca3d-8065-8003-690424abc307">
-                    <g class="fills" id="fills-1353d6eb-ca3d-8065-8003-690424abc307">
-                    <path fill="none" stroke-linecap="round" stroke-linejoin="round" rx="0" ry="0" style="fill:none" d="M345.000,1092.000L338.000,1112.000L334.000,1103.000L325.000,1099.000L345.000,1092.000ZZ">
-                    </path>
-                    </g>
-                    <g id="strokes-1353d6eb-ca3d-8065-8003-690424abc307" class="strokes">
-                    <g class="stroke-shape">
-                        <path stroke-linecap="round" stroke-linejoin="round" rx="0" ry="0" style="fill:none;fill-opacity:none;stroke-width:2;stroke:#000000;stroke-opacity:1" d="M345.000,1092.000L338.000,1112.000L334.000,1103.000L325.000,1099.000L345.000,1092.000ZZ">
+                <g>
+                    <g class="fills">
+                        <path fill="none" stroke-linecap="round" stroke-linejoin="round" rx="0" ry="0" style="fill:none" d="M345.000,1092.000L338.000,1112.000L334.000,1103.000L325.000,1099.000L345.000,1092.000ZZ">
                         </path>
                     </g>
+                    <g id="strokes-1353d6eb-ca3d-8065-8003-690424abc307" class="strokes">
+                        <g class="stroke-shape">
+                            <path class="stroke-black dark:stroke-gray-300" stroke-linecap="round" stroke-linejoin="round" rx="0" ry="0" style="fill:none;fill-opacity:none;stroke-width:2;stroke-opacity:1" d="M345.000,1092.000L338.000,1112.000L334.000,1103.000L325.000,1099.000L345.000,1092.000ZZ">
+                            </path>
+                        </g>
                     </g>
                 </g>
                 </g>
@@ -115,24 +115,24 @@
         <x-inputs.button type="icon" class="flex justify-self-end" @click="$dispatch('open-gift-modal')">
             <span>
                 <svg xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" width="26" xmlns="http://www.w3.org/2000/svg" id="screenshot-1353d6eb-ca3d-8065-8003-69043035322b" version="1.1" viewBox="519 1088 26 26" height="26">
-                    <g id="shape-1353d6eb-ca3d-8065-8003-69043035322b" style="fill: #000000" width="24" class="lucide lucide-dollar-sign text-white" height="24" rx="0" ry="0">
-                        <g id="shape-1353d6eb-ca3d-8065-8003-690430354bfd">
-                            <g class="fills" id="fills-1353d6eb-ca3d-8065-8003-690430354bfd">
+                    <g width="24" class="fill-black dark:fill-gray-300 lucide lucide-dollar-sign text-white" height="24" rx="0" ry="0">
+                        <g>
+                            <g class="fills">
                                 <path fill="none" stroke-linejoin="round" stroke-linecap="round" rx="0" ry="0" style="fill: none" d="M532.000,1091.000L532.000,1111.000" ></path>
                             </g>
-                            <g id="strokes-1353d6eb-ca3d-8065-8003-690430354bfd" class="strokes">
+                            <g class="strokes">
                                 <g class="stroke-shape">
-                                    <path stroke-linejoin="round" stroke-linecap="round" rx="0" ry="0" style=" fill: none; fill-opacity: none; stroke-width: 2; stroke: #000000; stroke-opacity: 1;" d="M532.000,1091.000L532.000,1111.000" ></path>
+                                    <path class="stroke-black dark:stroke-gray-300" stroke-linejoin="round" stroke-linecap="round" rx="0" ry="0" style=" fill: none; fill-opacity: none; stroke-width: 2; stroke-opacity: 1;" d="M532.000,1091.000L532.000,1111.000" ></path>
                                 </g>
                             </g>
                         </g>
-                        <g id="shape-1353d6eb-ca3d-8065-8003-690430378aab">
-                            <g class="fills" id="fills-1353d6eb-ca3d-8065-8003-690430378aab">
+                        <g>
+                            <g class="fills">
                                 <path fill="none" stroke-linecap="round" stroke-linejoin="round" rx="0" ry="0" style="fill: none" d="M537.000,1094.000L529.500,1094.000C527.567,1094.000,526.000,1095.567,526.000,1097.500C526.000,1099.433,527.567,1101.000,529.500,1101.000L534.500,1101.000C536.433,1101.000,538.000,1102.567,538.000,1104.500C538.000,1106.433,536.433,1108.000,534.500,1108.000L526.000,1108.000" ></path>
                             </g>
-                            <g id="strokes-1353d6eb-ca3d-8065-8003-690430378aab" class="strokes">
+                            <g class="strokes">
                                 <g class="stroke-shape">
-                                    <path stroke-linecap="round" stroke-linejoin="round" rx="0" ry="0" style=" fill: none; fill-opacity: none; stroke-width: 2; stroke: #000000; stroke-opacity: 1; " d="M537.000,1094.000L529.500,1094.000C527.567,1094.000,526.000,1095.567,526.000,1097.500C526.000,1099.433,527.567,1101.000,529.500,1101.000L534.500,1101.000C536.433,1101.000,538.000,1102.567,538.000,1104.500C538.000,1106.433,536.433,1108.000,534.500,1108.000L526.000,1108.000" ></path>
+                                    <path class="stroke-black dark:stroke-gray-300" stroke-linecap="round" stroke-linejoin="round" rx="0" ry="0" style=" fill: none; fill-opacity: none; stroke-width: 2; stroke-opacity: 1; " d="M537.000,1094.000L529.500,1094.000C527.567,1094.000,526.000,1095.567,526.000,1097.500C526.000,1099.433,527.567,1101.000,529.500,1101.000L534.500,1101.000C536.433,1101.000,538.000,1102.567,538.000,1104.500C538.000,1106.433,536.433,1108.000,534.500,1108.000L526.000,1108.000" ></path>
                                 </g>
                             </g>
                         </g>
