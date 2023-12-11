@@ -6,6 +6,10 @@
     a, button {
         -webkit-tap-highlight-color: transparent;
     }
+
+    .attr-bg-img {
+        background-image: attr(data-bg-img) " ";
+    }
 }
 
 @layer components {

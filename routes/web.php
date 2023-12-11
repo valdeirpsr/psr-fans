@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SubscribeController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,13 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/registrar', [AuthController::class, 'register'])->name('subscribe');
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/assinar', [SubscribeController::class, 'index'])->name('subscribe');
 
-Route::get('/transacao/{status}', [TransactionController::class, 'status'])
-    ->whereIn('status', ['approved', 'expired']);
+/* Route::middleware(['auth'])->group(function () { */
+    Route::get('/', function () {
+        return view('timeline');
+    });
 
-Route::get('/transacao/detalhes/{id}', [TransactionController::class, 'index']);
+    Route::get('/transacao/{status}', [TransactionController::class, 'status'])
+        ->whereIn('status', ['approved', 'expired']);
+
+    Route::get('/transacao/detalhes/{id}', [TransactionController::class, 'index']);
+/* }); */
