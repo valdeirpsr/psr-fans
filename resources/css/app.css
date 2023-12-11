@@ -14,11 +14,24 @@
     .attr-bg-img {
         background-image: attr(data-bg-img) " ";
     }
+
+    .list-check::before {
+        content: '✔️ ';
+        color: inherit;
+        text-shadow: initial;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .list-check::before {
+            color: transparent;
+            text-shadow: 0 0 0 white;
+        }
+    }
 }
 
 @layer components {
     .card {
-        @apply container bg-white p-4 mb-4 sm:max-w-5xl;
+        @apply container bg-white p-4 mb-4 sm:max-w-5xl dark:bg-gray-800 dark:text-gray-300;
     }
 
     .btn {

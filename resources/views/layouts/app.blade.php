@@ -18,7 +18,7 @@
     @stack('scripts-header')
 </head>
 
-<body class="antialiased bg-[#fafafa]">
+<body class="antialiased bg-[#fafafa] dark:bg-gray-900 dark:text-gray-300">
     @yield('main')
 
     @stack('scripts-footer')
