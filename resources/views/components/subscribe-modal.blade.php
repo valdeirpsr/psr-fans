@@ -1,6 +1,6 @@
 <div x-data="initSubscribeModal" @open-subscribe-modal.window="isVisible = true">
     <template x-if="isVisible">
-        <div class="bg-black bg-opacity-80 fixed inset-0 flex items-center p-4" @click="closeModal">
+        <div class="bg-black bg-opacity-80 fixed inset-0 flex items-center p-4 z-20" @click="closeModal">
             <!--
                 @TODO:
                 [ ]: Utilizar Ziggy Route
