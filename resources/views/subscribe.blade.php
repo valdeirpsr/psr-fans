@@ -1,19 +1,29 @@
 @extends('layouts.app')
 
 @section('main')
-<div
-    class="w-screen h-screen grid place-content-center p-10 bg-red-800 bg-opacity-80 bg-cover bg-blend-color-burn"
-    x-data="initLoginPage"
-    style="background-image: url('{{ Vite::asset('resources/images/Mon-Mar-6-13-27-27--03-20236406146f733ca.webp') }}')"
->
+<picture class="h-screen w-screen fixed" x-data="{
+    images: [
+        { height: '915', width: '412', src: '{{ config('settings.page.subscribe.background.sm') }}', maxWidth: '480px' },
+        { height: '915', width: '412', src: '{{ config('settings.page.subscribe.background.md') }}', maxWidth: '800px' },
+        { height: '915', width: '412', src: '{{ config('settings.page.subscribe.background.lg') }}', maxWidth: '1024px' }
+    ]
+}">
+    <img
+        src="{{ config('settings.page.subscribe.background.default') }}"
+        alt=""
+        class="h-full object-cover select-none"
+        fetchpriority="high"
+        loading="eager"
+        height="1080"
+        width="1920"
+    />
+</picture>
+
+<div class="w-screen h-screen grid place-content-center p-10 bg-cover relative" x-data="initLoginPage">
     <div class="p-0 overflow-hidden">
         <div class="grid text-white">
             <div class="p-4 space-y-12">
-                <img
-                    src="{{ Vite::asset('resources/images/logo.png') }}"
-                    alt="Logo"
-                    class="m-auto mb-8"
-                />
+                <x-authentication-card-logo class="m-auto" />
 
                 <div class="text-center">
                     <p class="text-2xl font-bold">Assine agora</p>
@@ -22,7 +32,7 @@
                     </p>
                 </div>
 
-                <div class="grid grid-cols-[96px_96px_96px] gap-4 mt-4">
+                <div class="grid grid-cols-3 gap-4 mt-4">
                     <img
                         src="https://placehold.co/96"
                         alt="Conteúdo Grátis"
@@ -68,11 +78,9 @@
                 </div>
 
                 <div>
-                    <x-inputs.button
-                        class="rounded-full bg-black"
-                        @click="$dispatch('open-subscribe-modal')"
-                        >Assinar</x-inputs.button
-                    >
+                    <x-button class="!block w-full" @click="$dispatch('open-subscribe-modal')">
+                        Assinar
+                    </x-button>
                 </div>
             </div>
         </div>
