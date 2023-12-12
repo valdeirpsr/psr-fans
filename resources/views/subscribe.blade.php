@@ -72,5 +72,5 @@
 </div>
 
 <x-media-viewer />
-<x-subscribe-modal />
+@livewire('subscribe-modal')
 @endsection
