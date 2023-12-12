@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\TransactionStatus;
+use App\Enums\PaymentStatus;
 use Cknow\Money\Money;
+use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Vite;
 
-class TransactionController extends Controller
+class PaymentController extends Controller
 {
     public function index()
     {
@@ -22,12 +22,17 @@ class TransactionController extends Controller
         ]);
     }
 
+    public function create(Request $request)
+    {
+        /* Code Here */
+    }
+
     public function status(string $status)
     {
         return view('transaction-status', [
-            'color' => TransactionStatus::tryFrom($status)->getColor(),
-            'status' => TransactionStatus::tryFrom($status)->getLabel(),
-            'lottie' => TransactionStatus::tryFrom($status)->getLottieFile(),
+            'color' => PaymentStatus::tryFrom($status)->getColor(),
+            'status' => PaymentStatus::tryFrom($status)->getLabel(),
+            'lottie' => PaymentStatus::tryFrom($status)->getLottieFile(),
         ]);
     }
 }

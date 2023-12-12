@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SubscribeController;
-use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,11 +29,9 @@ Route::middleware([
         return view('timeline');
     });
 
-    Route::get('/transacao/create', [TransactionController::class, 'create'])->name('transaction.create');
+    Route::get('/pagamento', [PaymentController::class, 'index'])->name('payment');
 
-    Route::get('/transacao/detalhes/{id}', [TransactionController::class, 'index'])->name('transaction.details');
-
-    Route::get('/transacao/{status}', [TransactionController::class, 'status'])
+    Route::get('/pagamento/{status}', [PaymentController::class, 'status'])
         ->whereIn('status', ['approved', 'expired']);
 
     Route::get('/dashboard', function () {
