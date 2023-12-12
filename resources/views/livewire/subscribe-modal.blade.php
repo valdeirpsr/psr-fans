@@ -24,6 +24,12 @@
                         </ul>
                     </div>
 
+                    @error('warning')
+                    <div class="">
+                        <x-alert type="danger">{{ $message }}</x-alert>
+                    </div>
+                    @enderror
+
                     <div class="mb-8">
                         <label for="input-plan" class="text-sm pl-1">Escolha seu plano</label>
                         <select name="plan" class="input-select" id="input-plan" wire:model="plan">

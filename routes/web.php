@@ -29,12 +29,12 @@ Route::middleware([
         return view('timeline');
     });
 
-    Route::get('/transacao/detalhes/{id}', [TransactionController::class, 'index']);
+    Route::get('/transacao/create', [TransactionController::class, 'create'])->name('transaction.create');
+
+    Route::get('/transacao/detalhes/{id}', [TransactionController::class, 'index'])->name('transaction.details');
 
     Route::get('/transacao/{status}', [TransactionController::class, 'status'])
         ->whereIn('status', ['approved', 'expired']);
-
-    Route::get('/transacao/detalhes/{id}', [TransactionController::class, 'index']);
 
     Route::get('/dashboard', function () {
         return view('dashboard');

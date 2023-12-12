@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Models\Plan;
+use App\Services\PlanService;
 use Livewire\Component;
 
 class SubscribeModal extends Component
@@ -10,26 +12,12 @@ class SubscribeModal extends Component
 
     public array $plans = [];
 
-    public function __construct()
+    public function mount(PlanService $planService)
     {
-        $this->plans = [
-            [
-                'id' => '1',
-                'name' => '1 Mês - R$49,90'
-            ],
-            [
-                'id' => '2',
-                'name' => '3 Mêses - R$42,00'
-            ],
-            [
-                'id' => '3',
-                'name' => '6 Mêses - R$37,00'
-            ],
-            [
-                'id' => '4',
-                'name' => '12 Mêses - R$35,00'
-            ],
-        ];
+        $this->plans = $planService->list()->map(fn (Plan $plan) => [
+            'id' => $plan['id'],
+            'name' => $plan['name'],
+        ])->toArray();
     }
 
     public function render()
@@ -41,10 +29,13 @@ class SubscribeModal extends Component
 
     public function choosePlan()
     {
-        dd(
-            $this->plan,
-            'Plano escolhido: ' . $this->plan,
-            $this->plans[0]
-        );
+        $plan = $this->plan ?: $this->plans[0]['id'] ?? null;
+
+        if ($plan) {
+            session()->put('plan', $plan);
+            return redirect()->route('register');
+        }
+
+        $this->addError('warning', __('É necessário escolher um plano antes prosseguir'));
     }
 }
