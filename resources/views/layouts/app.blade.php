@@ -21,6 +21,8 @@
 <body class="antialiased bg-[#fafafa] dark:bg-gray-900 dark:text-gray-300">
     @yield('main')
 
+    @livewireScriptConfig
+
     @stack('scripts-footer')
 </body>
 

@@ -1,4 +1,5 @@
-import AlpineJs from 'alpinejs';
+import { Alpine } from '../../../vendor/livewire/livewire/dist/livewire.esm';
+
 import initMediaCard from './data/initMediaCard';
 import initCommetDialog from './data/initCommetDialog';
 import initMediaViewer from './data/initMediaViewer';
@@ -8,13 +9,10 @@ import initLoginPage from './data/initLoginPage';
 
 document.addEventListener('alpine:init', () => {
   /* @ts-ignore */
-  AlpineJs.data('initMediaCard', initMediaCard);
-  AlpineJs.data('initCommentDialog', initCommetDialog);
-  AlpineJs.data('initMediaViewer', initMediaViewer);
-  AlpineJs.data('initSubscribeModal', initSubscribeModal);
-  AlpineJs.data('initGiftModal', initGiftModal);
-  AlpineJs.data('initLoginPage', initLoginPage);
+  Alpine.data('initMediaCard', initMediaCard);
+  Alpine.data('initCommentDialog', initCommetDialog);
+  Alpine.data('initMediaViewer', initMediaViewer);
+  Alpine.data('initSubscribeModal', initSubscribeModal);
+  Alpine.data('initGiftModal', initGiftModal);
+  Alpine.data('initLoginPage', initLoginPage);
 });
-
-window.Alpine = AlpineJs;
-AlpineJs.start();
