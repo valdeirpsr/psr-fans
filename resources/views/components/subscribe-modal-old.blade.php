@@ -1,11 +1,7 @@
 <div x-data="initSubscribeModal" @open-subscribe-modal.window="isVisible = true">
     <template x-if="isVisible">
-        <div class="bg-black bg-opacity-80 fixed inset-0 flex items-center p-4 z-20" @click="closeModal">
-            <!--
-                @TODO:
-                [ ]: Utilizar Ziggy Route
-            -->
-            <form x-ref="form" action="https://en0mg36g6h21w9.x.pipedream.net/" method="post" class="container sm:max-w-[380px]">
+        <div class="bg-black bg-opacity-80 fixed inset-0 flex items-center p-4" @click="closeModal">
+            <form x-ref="form" action="{{ route('subscribe') }}" method="post" class="container sm:max-w-[380px]">
                 <img src="https://placehold.co/384x180" class="w-full max-h-80 object-cover" />
 
                 <div class="card pt-0">
@@ -14,22 +10,22 @@
 
                         <div>
                             <p class="font-bold">YOUR NAME</p>
-                            <p class="text-gray-500 text-sm">104 Fotos | 54 Vídeos</p>
+                            <p class="text-sm">104 Fotos | 54 Vídeos</p>
                         </div>
                     </div>
 
-                    <div class="text-gray-700 my-8 px-3">
+                    <div class="my-8 px-3">
                         <b class="mb-8 block">Assine e tenha estes benefícios:</b>
 
                         <ul class="space-y-4 tracking-tight">
-                            <li>✔️ Acesso total ao conteúdo deste usuário </li>
-                            <li>✔️ Mensagem direta com este usuário </li>
-                            <li>✔️ Cancele sua assinatura a qualquer momento </li>
+                            <li class="list-check">Acesso total ao conteúdo deste usuário </li>
+                            <li class="list-check">Mensagem direta com este usuário </li>
+                            <li class="list-check">Cancele sua assinatura a qualquer momento </li>
                         </ul>
                     </div>
 
                     <div class="mb-8">
-                        <label for="input-plan" class="text-sm text-gray-700 pl-1">Escolha seu plano</label>
+                        <label for="input-plan" class="text-sm pl-1">Escolha seu plano</label>
                         <select name="plan" class="input-select" id="input-plan">
                             <option value="1">1 Mês - R$49,90</option>
                             <option value="3">3 Mêses - R$42,00</option>

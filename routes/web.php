@@ -16,18 +16,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/registrar', [AuthController::class, 'register'])->name('subscribe');
 
 Route::get('/assinar', [SubscribeController::class, 'index'])->name('subscribe');
 
-/* Route::middleware(['auth'])->group(function () { */
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
     Route::get('/', function () {
         return view('timeline');
     });
+
+    Route::get('/transacao/detalhes/{id}', [TransactionController::class, 'index']);
 
     Route::get('/transacao/{status}', [TransactionController::class, 'status'])
         ->whereIn('status', ['approved', 'expired']);
 
     Route::get('/transacao/detalhes/{id}', [TransactionController::class, 'index']);
-/* }); */
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

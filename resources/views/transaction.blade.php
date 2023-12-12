@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('content')
+@section('main')
 <div class="container sm:max-w-5xl p-4">
-    <p class="font-bold">Selecione a forma de pagamento!</p>
+    <p class="font-bold">Realize o pagamento para liberar o conteúdo</p>
 
     <div class="grid gap-4 md:grid-cols-2 mt-8">
-        <div class="card space-y-6 rounded-lg border-2 h-min">
+        <div class="card space-y-6 rounded-lg border-2 h-min dark:border-gray-700">
             <p class="font-bold">Resumo da assinatura</p>
 
             <div class="space-y-0.5">
@@ -15,13 +15,13 @@
             </div>
         </div>
 
-        <div class="card space-y-6 rounded-lg border-2">
+        <div class="card space-y-6 rounded-lg border-2 dark:border-gray-700">
             <p class="font-bold">Pague {{ $total }} Via Pix</p>
 
             <p>Pagar com PIX é rápido e seguro! É só seguir estes passos:</p>
 
             <div>
-                {{ QrCode::size(344)->generate($pix) }}
+                {{ QrCode::size(284)->generate($pix) }}
             </div>
 
             <div class="space-y-2">
