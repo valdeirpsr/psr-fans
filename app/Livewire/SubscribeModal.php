@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Plan;
 use App\Services\PlanService;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class SubscribeModal extends Component
@@ -33,6 +34,11 @@ class SubscribeModal extends Component
 
         if ($plan) {
             session()->put('plan', $plan);
+
+            if (Auth::check()) {
+                return redirect()->route('payment');
+            }
+
             return redirect()->route('register');
         }
 
