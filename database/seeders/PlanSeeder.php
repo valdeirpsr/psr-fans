@@ -22,19 +22,19 @@ class PlanSeeder extends Seeder
         ]);
 
         Plan::factory()->enabled()->create([
-            'name' => '3 Mêses - R$42,00',
+            'name' => '3 Meses - R$42,00',
             'price' => 42,
             'period' => 90,
         ]);
 
         Plan::factory()->enabled()->create([
-            'name' => '6 Mêses - R$37,00',
+            'name' => '6 Meses - R$37,00',
             'price' => 37,
             'period' => 180,
         ]);
 
         Plan::factory()->enabled()->create([
-            'name' => '12 Mêses - R$35,00',
+            'name' => '12 Meses - R$35,00',
             'price' => 35,
             'period' => 365,
         ]);
