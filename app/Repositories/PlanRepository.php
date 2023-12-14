@@ -11,4 +11,9 @@ class PlanRepository
     {
         return Plan::enabled()->get();
     }
+
+    public function get(int $id)
+    {
+        return Plan::enabled()->where('id', $id)->firstOrFail();
+    }
 }
