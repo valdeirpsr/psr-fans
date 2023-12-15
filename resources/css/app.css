@@ -35,7 +35,7 @@
 
 @layer components {
     .card {
-        @apply container bg-white p-4 mb-4 sm:max-w-5xl dark:bg-gray-800 dark:text-gray-300;
+        @apply container bg-white p-4 mb-4 sm:max-w-4xl dark:bg-gray-800 dark:text-gray-300;
     }
 
     .btn {

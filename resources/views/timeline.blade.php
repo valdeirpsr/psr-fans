@@ -1,7 +1,7 @@
 @extends('layouts.home')
 
 @section('content')
-<header class="container sm:max-w-5xl">
+<header class="container sm:max-w-4xl">
     <img src="https://placehold.co/384x180" class="w-full max-h-80 object-cover" alt="Background" loading="lazy" />
 
     <div class="card pt-0">
@@ -14,7 +14,7 @@
             </div>
         </div>
 
-        <p class="mt-3 text-gray-700">
+        <p class="mt-3 text-gray-700 dark:text-gray-300">
             Casal que ama aventura, inclusive no sexo! Muita experiência no menage com meninas e aqui vamos mostrar um pouquinho de conteúdo nosso e com elas. Menos hipocrisia e mais sexo, por favor!
         </p>
     </div>
