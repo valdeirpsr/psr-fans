@@ -30,6 +30,12 @@ class Subscription extends Model
         'user_agent',
     ];
 
+    protected $casts = [
+        'expired_at' => 'date',
+        'plan_price' => 'decimal:2',
+        'total' => 'decimal:2',
+    ];
+
     public function scopeIsPaid(Builder $query): void
     {
         $query->where('payment_status', PaymentStatus::APPROVED);
