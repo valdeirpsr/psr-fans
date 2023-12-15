@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Repositories\SubscriptionRepository;
 use App\Services\SubscriptionService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Carbon;
 use Mockery;
 use Mockery\MockInterface;
 use Tests\TestCase;
@@ -25,6 +26,8 @@ class SubscriptionServiceTest extends TestCase
 
             $repositoryMock = Mockery::mock(SubscriptionRepository::class, function (MockInterface $mock) use ($user, $plan) {
                 $sub = Subscription::factory()->createQuietly();
+
+                $mock->shouldIgnoreMissing();
 
                 $mock->shouldReceive('create')
                     ->once()

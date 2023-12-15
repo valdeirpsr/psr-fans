@@ -35,4 +35,11 @@ class SubscriptionService
             'user_agent' => request()->userAgent(),
         ]);
     }
+
+    public function currentSubscriptionActiveByUser(): ?Subscription
+    {
+        $user = request()->user();
+
+        return $this->subscriptionRepository->currentSubscriptionActiveByUser($user);
+    }
 }
