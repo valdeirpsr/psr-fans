@@ -28,7 +28,7 @@ class SubscriptionFactory extends Factory
             'plan_price' => fake()->randomFloat(2, 10, 90),
             'plan_period' => fake()->randomDigitNotZero(),
             'payment_method' => 'pix',
-            'payment_status' => PaymentStatus::PENDING->value,
+            'payment_status' => fake()->randomElement(PaymentStatus::cases())->value,
             'total' => fake()->randomFloat(2, 10, 90),
             'expired_at' => fake()->dateTimeBetween('+1 day', '+1 year'),
         ];
@@ -38,6 +38,13 @@ class SubscriptionFactory extends Factory
     {
         return $this->state(fn () => [
             'expired_at' => now()->subDay(),
+        ]);
+    }
+
+    public function paymentApproved(): Factory
+    {
+        return $this->state(fn () => [
+            'payment_status' => PaymentStatus::APPROVED,
         ]);
     }
 }
