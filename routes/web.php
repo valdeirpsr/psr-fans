@@ -29,10 +29,10 @@ Route::middleware([
         return view('timeline');
     });
 
-    Route::get('/pagamento', [PaymentController::class, 'index'])->name('payment');
+    Route::get('/pagamento', [PaymentController::class, 'create'])->name('payment');
+    Route::get('/pagamento/{subscription}', [PaymentController::class, 'show'])->name('payment.show');
 
-    Route::get('/pagamento/{status}', [PaymentController::class, 'status'])
-        ->whereIn('status', ['approved', 'expired']);
+    Route::get('/pagamento/{subscription}/status', [PaymentController::class, 'status']);
 
     Route::get('/dashboard', function () {
         return view('dashboard');

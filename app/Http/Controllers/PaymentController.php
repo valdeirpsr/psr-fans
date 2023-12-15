@@ -46,12 +46,13 @@ class PaymentController extends Controller
         ]);
     }
 
-    public function status(string $status)
+    public function status(Subscription $subscription)
     {
-        return view('transaction-status', [
-            'color' => PaymentStatus::tryFrom($status)->getColor(),
-            'status' => PaymentStatus::tryFrom($status)->getLabel(),
-            'lottie' => PaymentStatus::tryFrom($status)->getLottieFile(),
-        ]);
+        return response()->json(
+            data: $subscription->only([
+                'payment_status'
+            ]),
+            options: JSON_PRETTY_PRINT
+        );
     }
 }
