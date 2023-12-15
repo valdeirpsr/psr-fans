@@ -11,10 +11,14 @@ class Subscription extends Model
 
     protected $fillable = [
         'user_id',
+        'customer_name',
+        'customer_email',
+        'customer_cpf',
         'plan_name',
         'plan_price',
         'plan_period',
         'payment_method',
+        'payment_status',
         'total',
         'expired_at',
         'forwarded_ip',

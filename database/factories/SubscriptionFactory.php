@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\PaymentStatus;
 use App\Models\Plan;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -20,10 +21,14 @@ class SubscriptionFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
+            'customer_name' => fake()->name(),
+            'customer_email' => fake()->email(),
+            'customer_cpf' => fake()->numerify('###########'),
             'plan_name' => fake()->realTextBetween(10, 25),
             'plan_price' => fake()->randomFloat(2, 10, 90),
             'plan_period' => fake()->randomDigitNotZero(),
             'payment_method' => 'pix',
+            'payment_status' => PaymentStatus::PENDING->value,
             'total' => fake()->randomFloat(2, 10, 90),
             'expired_at' => fake()->dateTimeBetween('+1 day', '+1 year'),
         ];
