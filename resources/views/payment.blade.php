@@ -9,9 +9,10 @@
             <p class="font-bold">Resumo da assinatura</p>
 
             <div class="space-y-0.5">
-                @foreach ($resume as $key => $value)
-                <p><span>{{ $key }}:</span> {{ $value }}</p>
-                @endforeach
+                <p><span>{{ __('Assinante') }}:</span> {{ $customer['name'] }}</p>
+                <p><span>{{ __('Plano') }}:</span> {{ $plan_name }}</p>
+                <p><span>{{ __('Valor Total') }}:</span> {{ $total }}</p>
+                <p><span>{{ __('Expira em') }}:</span> {{ $expired_at }}</p>
             </div>
         </div>
 
