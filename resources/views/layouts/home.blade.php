@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
 @section('main')
+    @livewire('navigation-menu')
+
     @yield('content')
     <x-comment-dialog />
     <x-media-viewer />
-    <x-subscribe-modal />
+    @livewire('subscribe-modal'))
     <x-gift-modal />
 @endsection
