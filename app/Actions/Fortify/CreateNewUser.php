@@ -19,13 +19,15 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
+        $input['cpf'] = preg_replace('/\D/', '', $input['cpf']);
+
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
             'birthdate' => 'before_or_equal:-18 years',
-            'cpf' => ['required'],
+            'cpf' => ['required', 'max:11'],
         ])->validate();
 
         return User::create([

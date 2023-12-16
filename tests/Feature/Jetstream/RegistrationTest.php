@@ -85,4 +85,29 @@ class RegistrationTest extends TestCase
 
         $response->assertRedirect();
     }
+
+    public function test_cpf_must_only_numbers(): void
+    {
+        if (! Features::enabled(Features::registration())) {
+            $this->markTestSkipped('Registration support is not enabled.');
+
+            return;
+        }
+
+        $response = $this->post('/register', [
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password' => 'password',
+            'password_confirmation' => 'password',
+            'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature(),
+            'birthdate' => now()->subYears(18),
+            'cpf' => '123.456.789-09',
+        ]);
+
+        $this->assertAuthenticated();
+        $this->assertDatabaseHas('users', [
+            'birthdate' => now()->subYears(18)->format('Y-m-d'),
+            'cpf' => '12345678909',
+        ]);
+    }
 }
