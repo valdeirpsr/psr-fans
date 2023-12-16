@@ -13,6 +13,10 @@ export default {
 
     theme: {
         extend: {
+            container: {
+                center: true,
+            },
+
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
