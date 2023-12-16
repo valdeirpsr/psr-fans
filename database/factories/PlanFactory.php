@@ -31,4 +31,11 @@ class PlanFactory extends Factory
             'status' => PlanStatus::PUBLISHED,
         ]);
     }
+
+    public function draft(): Factory
+    {
+        return $this->state(fn () => [
+            'status' => PlanStatus::DRAFT,
+        ]);
+    }
 }
