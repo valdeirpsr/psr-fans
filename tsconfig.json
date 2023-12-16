@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "ESNext",
+      "moduleResolution": "node",
+      "baseUrl": "./",
+      "strict": true,
+      "skipLibCheck": true,
+      "noImplicitAny": false,
+      "paths": {
+        "@/*": ["resources/js/*"],
+      },
+      "typeRoots": [
+        "resources/js/Types/*.d.ts",
+      ]
+    },
+    "include": [
+        "resources/js/**/*.ts",
+    ]
+  }
