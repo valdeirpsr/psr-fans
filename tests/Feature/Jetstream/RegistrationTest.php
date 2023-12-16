@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Fortify\Features;
@@ -109,5 +110,30 @@ class RegistrationTest extends TestCase
             'birthdate' => now()->subYears(18)->format('Y-m-d'),
             'cpf' => '12345678909',
         ]);
+    }
+
+    public function test_cpf_must_be_unique(): void
+    {
+        if (! Features::enabled(Features::registration())) {
+            $this->markTestSkipped('Registration support is not enabled.');
+
+            return;
+        }
+
+        User::factory()->create([
+            'cpf' => '12345678909',
+        ]);
+
+        $response = $this->post('/register', [
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password' => 'password',
+            'password_confirmation' => 'password',
+            'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature(),
+            'birthdate' => now()->subYears(18),
+            'cpf' => '123.456.789-09',
+        ]);
+
+        $response->assertInvalid('cpf');
     }
 }
