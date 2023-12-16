@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
+ * @property int $id
+ * @property string $name
+ * @property float $price
+ * @property int $period
+ * @property string $status
+ *
  * @method static \Database\Factories\PlanFactory factory()
  */
 class Plan extends Model
