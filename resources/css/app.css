@@ -5,3 +5,44 @@
 [x-cloak] {
     display: none;
 }
+
+@layer base {
+    .list-check::before {
+        content: '✔️ ';
+        color: inherit;
+        text-shadow: initial;
+    }
+}
+
+@layer components {
+    .card {
+        @apply container bg-white p-4 mb-4 sm:max-w-4xl;
+    }
+
+    .btn {
+        @apply rounded-2xl
+        bg-pink-600
+        text-white
+        px-8
+        py-3
+        w-full
+        text-base
+        hover:bg-pink-800
+        block
+        disabled:bg-gray-500;
+    }
+
+    .input-select {
+        @apply bg-gray-50
+        border
+        border-gray-300
+        text-gray-900
+        text-sm
+        rounded-lg
+        focus:ring-blue-500
+        focus:border-blue-500
+        block
+        w-full
+        p-2.5
+    }
+}
