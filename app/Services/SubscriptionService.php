@@ -7,6 +7,7 @@ use App\Models\Subscription;
 use App\Models\User;
 use App\Repositories\SubscriptionRepository;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Session;
 
 class SubscriptionService
 {
@@ -18,7 +19,7 @@ class SubscriptionService
     public function create(User $user, Plan $plan): ?Subscription
     {
         try {
-            return $this->subscriptionRepository->create([
+            $model = $this->subscriptionRepository->create([
                 'user_id' => $user->id,
                 'plan_name' => $plan->name,
                 'plan_price' => $plan->price,
@@ -28,6 +29,10 @@ class SubscriptionService
                 'forwarded_ip' => request()->ip(),
                 'user_agent' => request()->userAgent(),
             ]);
+
+            Session::remove('plan');
+
+            return $model;
         } catch (QueryException $e) {
             report($e);
 
