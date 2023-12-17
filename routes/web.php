@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/pay')->name('payment');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
