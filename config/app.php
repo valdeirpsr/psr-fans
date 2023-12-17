@@ -84,6 +84,8 @@ return [
     */
 
     'locale' => 'en',
+    'date_format' => env('APP_DATE_FORMAT', 'Y-m-d'),
+    'money' => env('APP_MONEY', 'USD'),
 
     /*
     |--------------------------------------------------------------------------

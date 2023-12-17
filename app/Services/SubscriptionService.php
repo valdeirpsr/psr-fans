@@ -6,7 +6,9 @@ use App\Models\Plan;
 use App\Models\Subscription;
 use App\Models\User;
 use App\Repositories\SubscriptionRepository;
+use Cknow\Money\Money;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
 
 class SubscriptionService
@@ -38,5 +40,16 @@ class SubscriptionService
 
             return null;
         }
+    }
+
+    /**
+     * Formata os valores necessários da assinatura
+     */
+    public function format(Subscription $subscription): Subscription
+    {
+        $subscription->expired_at = Carbon::parse($subscription->expired_at)->format(config('app.date_format'));
+        $subscription->total = Money::{config('app.money')}($subscription->total);
+
+        return $subscription;
     }
 }

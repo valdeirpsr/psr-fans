@@ -8,6 +8,7 @@ use App\Services\SubscriptionService;
 use Illuminate\Support\Facades\Session;
 use Mockery\MockInterface;
 
+use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertFalse;
 use function PHPUnit\Framework\assertTrue;
 
@@ -27,4 +28,20 @@ it('Ao criar uma assinatura, a sessão plan deve ser excluída', function () {
     );
 
     assertFalse(Session::has('plan'));
+});
+
+it('Valida a formtaao dos dados', function () {
+    config()->set('app.date_format', 'd/m/Y');
+    config()->set('app.money', 'BRL');
+
+    $subscription = Subscription::factory()->make([
+        'expired_at' => '2014-07-13',
+        'total' => 19.93,
+    ]);
+
+    $service = new SubscriptionService(new SubscriptionRepository);
+    $result = $service->format($subscription);
+
+    assertEquals('13/07/2014', $result->expired_at);
+    assertEquals('R$19.93', $result->total);
 });
