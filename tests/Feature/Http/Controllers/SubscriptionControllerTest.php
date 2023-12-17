@@ -23,7 +23,7 @@ test('Se a sessão for inválida, o usuário deverá receber o erro 404', functi
 });
 
 test('O usuário deve ser redirecionado para a tela de pagamento se a sessão existir e for válida', function () {
-    $plan = Plan::factory()->createQuietly();
+    $plan = Plan::factory()->published()->createQuietly();
     Session::put('plan', $plan->id);
 
     asLogged()->get(route('subscription.store'))
