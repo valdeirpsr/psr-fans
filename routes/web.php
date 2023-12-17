@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/pay')->name('payment');
-Route::get('/sub')->name('subscription.store');
 
 Route::middleware([
     'auth:sanctum',
@@ -28,4 +28,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/subscription/create', [SubscriptionController::class, 'store'])->name('subscription.store');
 });
