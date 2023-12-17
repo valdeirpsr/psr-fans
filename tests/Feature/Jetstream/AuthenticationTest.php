@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Session;
 use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
@@ -41,5 +42,19 @@ class AuthenticationTest extends TestCase
         ]);
 
         $this->assertGuest();
+    }
+
+    public function test_if_there_plan_session_then_redirect_to_payment(): void
+    {
+        Session::put('plan', 1);
+
+        $user = User::factory()->create();
+
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $response->assertRedirectToRoute('subscription.store');
     }
 }

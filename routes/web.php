@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/pay')->name('payment');
+Route::get('/sub')->name('subscription.store');
 
 Route::middleware([
     'auth:sanctum',

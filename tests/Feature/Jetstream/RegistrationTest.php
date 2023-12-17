@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Session;
 use Laravel\Fortify\Features;
 use Laravel\Jetstream\Jetstream;
 use Tests\TestCase;
@@ -135,5 +136,22 @@ class RegistrationTest extends TestCase
         ]);
 
         $response->assertInvalid('cpf');
+    }
+
+    public function test_if_there_plan_session_then_redirect_to_payment(): void
+    {
+        Session::put('plan', 1);
+
+        $response = $this->post('/register', [
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password' => 'password',
+            'password_confirmation' => 'password',
+            'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature(),
+            'birthdate' => now()->subYears(18),
+            'cpf' => '12345678909',
+        ]);
+
+        $response->assertRedirectToRoute('subscription.store');
     }
 }
