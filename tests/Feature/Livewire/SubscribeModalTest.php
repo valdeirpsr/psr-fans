@@ -3,11 +3,14 @@
 use App\Livewire\SubscribeModal;
 use App\Models\Plan;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Livewire\Livewire;
 
 use function PHPUnit\Framework\assertEquals;
+
+uses(RefreshDatabase::class);
 
 it('Verifica a renderização do componente', function () {
     $plan = Plan::factory()->published()->createOneQuietly();
@@ -49,8 +52,6 @@ it('Ao criar uma assintura, o usuário logado deverá ser redirecionado', functi
 });
 
 it('Se o usuário não estiver logado, redireciona-o para a tela de registro e uma sessão com o plano ser armazenada', function () {
-    $user = User::factory()->createOneQuietly();
-
     $plan = Plan::factory()->published()->createOneQuietly();
 
     Livewire::test(SubscribeModal::class)
@@ -61,6 +62,16 @@ it('Se o usuário não estiver logado, redireciona-o para a tela de registro e u
         ->set('plan', $plan->id)
         ->call('createSubscribe')
         ->assertRedirect(route('register'));
+
+    assertEquals($plan->id, Session::get('plan'));
+});
+
+it('O valor padrão da propriedade, caso o usuário não altere no select, plan deve ser o primeiro plano', function () {
+    $plan = Plan::factory()->published()->createOneQuietly();
+
+    Livewire::test(SubscribeModal::class)
+        ->assertStatus(200)
+        ->call('createSubscribe');
 
     assertEquals($plan->id, Session::get('plan'));
 });

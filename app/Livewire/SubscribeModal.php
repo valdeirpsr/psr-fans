@@ -39,7 +39,7 @@ class SubscribeModal extends Component
         }
 
         if (! Auth::check()) {
-            session()->put('plan', $this->plan);
+            session()->put('plan', $plan->id);
             return redirect()->route('register');
         }
 
