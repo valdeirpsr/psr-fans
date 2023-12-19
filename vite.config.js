@@ -22,6 +22,7 @@ export default defineConfig({
             refresh: [
                 ...refreshPaths,
                 'app/Livewire/**',
+                'views/**',
             ],
         }),
     ],
