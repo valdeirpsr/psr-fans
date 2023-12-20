@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/pay')->name('payment');
+Route::get('/pagamento/{subscription}', [PaymentController::class, 'show'])->name('payment.show');
 
 Route::middleware([
     'auth:sanctum',
