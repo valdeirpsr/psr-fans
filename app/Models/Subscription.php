@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property float $plan_price
  * @property int $plan_period
  * @property float $total
+ * @property string $total_formated
  * @property string $expired_at
  * @property string $forwarded
  * @property string $user_agent
@@ -35,6 +36,13 @@ class Subscription extends Model
         'expired_at',
         'forwarded_ip',
         'user_agent',
+    ];
+
+    protected $hidden = [
+        'forwarded_ip',
+        'user_agent',
+        'created_at',
+        'updated_at',
     ];
 
     /**

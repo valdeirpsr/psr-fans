@@ -48,7 +48,7 @@ class SubscriptionService
     public function format(Subscription $subscription): Subscription
     {
         $subscription->expired_at = Carbon::parse($subscription->expired_at)->format(config('app.date_format'));
-        $subscription->total = Money::{config('app.money')}($subscription->total);
+        $subscription->total_formated = Money::{config('app.money')}($subscription->total);
 
         return $subscription;
     }
