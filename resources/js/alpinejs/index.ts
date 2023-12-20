@@ -1,1 +1,1 @@
-import { Alpine } from '../../../vendor/livewire/livewire/dist/livewire.esm';
+import './directives/clipboard';
