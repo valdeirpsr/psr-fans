@@ -3,6 +3,10 @@
 namespace App\Livewire\Modules\Payment;
 
 use App\Contracts\Modules\Payment;
+use App\Models\Subscription;
+use App\Services\MercadoPagoService;
+use App\Services\SubscriptionService;
+use Exception;
 use Illuminate\Support\Facades\Http;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -14,7 +18,7 @@ class MercadoPagoPix extends Component implements Payment
     public array $subscription = [];
 
     public function mount($subscription) {
-        $subscription['total'] = $subscription['total']->format();
+        $subscription['total_formated'] = $subscription['total_formated']->format();
         $this->subscription = $subscription;
     }
 
@@ -24,8 +28,18 @@ class MercadoPagoPix extends Component implements Payment
     }
 
     #[On('generate-pix')]
-    public function generateQrCode()
-    {
-        /* Conexão com o Mercado Pago */
+    public function generateQrCode(
+        MercadoPagoService $mercadoPagoService,
+        SubscriptionService $subscriptionService
+    ) {
+        try {
+            $result = $mercadoPagoService->create($this->subscription);
+
+            $this->qrCode = $result->point_of_interaction->transaction_data->qr_code;
+        } catch (Exception $e) {
+            report($e);
+
+            $this->addError('warning', __('Não foi possível gerar o QRCode'));
+        }
     }
 }
