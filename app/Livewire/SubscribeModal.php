@@ -52,7 +52,7 @@ class SubscribeModal extends Component
         );
 
         if ($result) {
-            return redirect()->route('payment');
+            return redirect()->route('payment.show', [$result]);
         }
 
         $this->addError('warning', __('Erro ao criar assinatura. Tente novamente mais tarde'));
